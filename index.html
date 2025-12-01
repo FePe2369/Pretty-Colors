@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--By Felipe Pereira :)-->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="p5.js"></script>
-  <style>
+  <head>
+    <!--By Felipe Pereira :)-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="p5.js"></script>
+    <style>
+      .grad1 {
+        background: linear-gradient(
+          90deg,
+          red,
+          orange,
+          violet,
+          yellow,
+          red,
+          blue,
+          violet
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
 
-    .grad1 {
-    background: linear-gradient(
-    90deg,
-    red, orange, violet, yellow,red,blue, violet
-  ); /* Gradiente arcoíris clásico */
-  -webkit-background-clip: text; /* Clip del fondo al texto (para navegadores Webkit) */
-  background-clip: text; /* Estándar, pa' que funcione en todos lados */
-  color: transparent; /* Hacemos el texto transparente pa' que se vea el gradiente */
-   /* Para que el gradiente se ajuste al texto */
-  
+      #title {
+        font-weight: bolder;
+        padding-top: 10px;
+        font-size: xx-large;
+        text-align: center;
+      }
 
-    
-}
+      #c {
+        color: white;
+        font-weight: bolder;
+        text-align: center;
+        font-size: medium;
+      }
+    </style>
+    <title>Pretty Colors</title>
+  </head>
+  <body class="bg-dark">
+    <h1 id="title" class="grad1">PRETTY COLORS</h1>
+    <h2 id="c">CLICK ON THE SCREEN 😱 | PRESS "C" TO CLEAN SCREEN</h2>
 
-    #title {
-      font-weight: bolder;
-      padding-top: 10px;
-      font-size: xx-large;
-      text-align: center;
-      
-    }
-    #c{
-      color: white;
-      font-weight: bolder;
-      text-align: center;
-      font-size: medium;
-      
-    }
-  </style>
-  <title>Pretty Colors</title>
-</head>
-<body class="bg-dark">
-  <h1 id="title" class="grad1">PRETTY COLORS</h1>
-  <h2 id="c">CLICK ON THE SCREEN 😱 | PRESS "C" TO CLEAN SCREEN</h2>  
-
-  <script src="script.js"></script>  
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

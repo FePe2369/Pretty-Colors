@@ -1,89 +1,93 @@
 let particles = [];
 let colors;
 
-// Configura el lienzo y los colores bien zarpados
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // Paleta de colores más loca y brillante
+  background(12, 12, 21);
+
+  // Color palette
   colors = [
-    color(255, 50, 150, 220), // Rosa flashero
-    color(50, 255, 200, 220), // Cyan brillante
-    color(100, 255, 50, 220), // Verde neón
-    color(255, 200, 50, 220), // Amarillo explosivo
-    color(200, 50, 255, 220), // Púrpura galáctico
+    color(255, 50, 150, 220), // Pink
+    color(50, 255, 200, 220), // Cyan
+    color(100, 255, 50, 220), // Neon green
+    color(255, 200, 50, 220), // Yellow
+    color(200, 50, 255, 220), // Purple
   ];
-  noStroke(); // Sin bordes xd
+
+  noStroke();
 }
 
-// Dibuja todo en cada frame
 function draw() {
-  // Fondo oscuro con efecto de desvanecimiento suave
-  background(10, 10, 20, 30);
+  // Fade effect background
+  fill(6, 6, 14, 30);
+  noStroke();
+  rect(0, 0, width, height);
 
-  // Si apretás el mouse, soltamos partículas como locos
+  // Create particles on mouse press
   if (mouseIsPressed) {
-    let particleCount = mouseButton === LEFT ? 10 : 20; // Más partículas con click derecho
+    let particleCount = mouseButton === LEFT ? 5 : 10;
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle(mouseX, mouseY, mouseButton === RIGHT));
+      if (particles.length < 1000) {
+        particles.push(new Particle(mouseX, mouseY, mouseButton === RIGHT));
+      }
     }
   }
 
-  // Actualizamos y mostramos las partículas, eliminando las que ya ripearon
+  // Update and display particles
   for (let i = particles.length - 1; i >= 0; i--) {
     particles[i].update();
     particles[i].display();
     if (particles[i].isDead()) {
-      particles.splice(i, 1); // Chau partícula muerta
+      particles.splice(i, 1);
     }
   }
 }
 
-// Clase para las partículas
 class Particle {
   constructor(x, y, isRightClick) {
     this.pos = createVector(x, y);
-    // Velocidad más loca si es click derecho
-    let speed = isRightClick ? random(-5, 5) : random(-2, 2);
-    this.vel = createVector(speed, speed);
-    this.acc = createVector(0, random(-0.15, 0.15)); // Aceleración random para más caos
-    this.size = random(10, 60); // Tamaño variado
-    this.sizeSpeed = random(-0.5, 0.5); // Cambio de tamaño dinámico
-    this.lifespan = 255; // Vida inicial
-    this.color = random(colors); // Color random de la paleta
-    this.isSquare = random() > 0.5; // ¿Círculo o cuadrado? ¡Sorpresa!
+
+    // Higher speed for right click
+    let speed = isRightClick ? 5 : 2;
+    this.vel = createVector(random(-speed, speed), random(-speed, speed));
+    this.acc = createVector(0, random(-0.15, 0.15));
+
+    this.size = random(10, 60);
+    this.sizeSpeed = random(-0.5, 0.5);
+    this.lifespan = 255;
+    this.color = random(colors);
+    this.isSquare = random() > 0.5;
   }
 
-  // Actualiza la posición, velocidad y tamaño
   update() {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
-    this.lifespan -= 3; // Se desvanece más rápido para más acción
-    this.size += this.sizeSpeed; // Cambia el tamaño dinámicamente
+    this.lifespan -= 6;
+
+    // Dynamic size change
+    this.size += this.sizeSpeed;
     if (this.size < 5 || this.size > 60) {
-      this.sizeSpeed *= -1; // Rebota el cambio de tamaño
+      this.sizeSpeed *= -1;
     }
   }
 
-  // Dibuja la partícula con su forma y color
   display() {
     fill(red(this.color), green(this.color), blue(this.color), this.lifespan);
     if (this.isSquare) {
-      rect(this.pos.x, this.pos.y, this.size, this.size); // Cuadrado pa' variar
+      rect(this.pos.x, this.pos.y, this.size, this.size);
     } else {
-      ellipse(this.pos.x, this.pos.y, this.size); // Círculo clásico
+      ellipse(this.pos.x, this.pos.y, this.size);
     }
   }
 
-  // Chequea si la partícula ya fue
   isDead() {
     return this.lifespan <= 0;
   }
 }
 
-// Limpia todo si apretás la tecla 'c'
 function keyPressed() {
-  if (key === 'c' || key === 'C') {
-    particles = []; // Borra todas las partículas
-    background(10, 10, 20); // Resetea el fondo
+  if (key === "c" || key === "C") {
+    particles = [];
+    background(10, 10, 20);
   }
 }
