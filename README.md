@@ -1,4 +1,4 @@
-# Pretty Colors 🎨
+# Pretty Colors
 
 An interactive particle system built with p5.js that creates colorful, dynamic animations based on mouse interactions.
 
