@@ -1,58 +1,26 @@
 # Pretty Colors
 
-An interactive particle system built with p5.js that creates colorful, dynamic animations based on mouse interactions.
+An interactive particle system built with p5.js. Click and drag to spawn colorful particles that drift, fade, and leave trails across the canvas.
 
 ## Features
 
-- **Interactive particle generation**: Click and drag to create particles
-- **Two click modes**:
-  - Left click: Slower particles (5 per frame)
-  - Right click: Faster particles (10 per frame)
-- **Dynamic particles**: Each particle has random size, color, velocity, and shape (circle or square)
-- **Smooth fade effect**: Particles fade out gradually with a trailing effect
-- **Performance optimized**: Limited to 1000 particles to maintain smooth animation
-- **Clear canvas**: Press 'C' to reset the canvas
+- Click and drag to generate particles (left button = slower, right button = faster)
+- Each particle gets a random size, color, velocity, and shape (circle or square)
+- Smooth fade-and-trail effect
+- Capped at 1000 particles to stay smooth
+- Press **C** to clear the canvas
 
-## Demo
+## Running it
 
-Simply open `index.html` in your browser and start clicking!
+1. Download [p5.js](https://p5js.org/download/) into the same folder as `index.html` (or use the copy already in the repo)
+2. Open `index.html` in your browser
 
-## Installation
+## Built with
 
-1. Download or clone this repository
-2. Download [p5.js](https://p5js.org/download/) and place it in the same directory as `index.html`
-3. Open `index.html` in your web browser
-
-## Usage
-
-- **Click and hold** the left mouse button to create slower particles
-- **Click and hold** the right mouse button to create faster particles
-- **Press 'C'** to clear all particles from the screen
-
-## Technologies
-
-- [p5.js](https://p5js.org/) - Creative coding library
-- [Bootstrap 5](https://getbootstrap.com/) - CSS framework for styling
+- [p5.js](https://p5js.org/) — canvas and particle rendering
+- [Bootstrap 5](https://getbootstrap.com/) — layout and styling
 - HTML5 Canvas
 
-## Color Palette
+## Color palette
 
-The project uses a vibrant neon color palette:
-
-- Pink (#FF3296)
-- Cyan (#32FFC8)
-- Neon Green (#64FF32)
-- Yellow (#FFC832)
-- Purple (#C832FF)
-
-## Performance
-
-The application limits the total number of particles to 1000 to ensure smooth performance. Particles automatically fade and are removed from memory when their lifespan reaches zero.
-
-## Author
-
-Felipe Pereira
-
-## License
-
-Free to use and modify.
+A neon palette: pink `#FF3296`, cyan `#32FFC8`, green `#64FF32`, yellow `#FFC832`, purple `#C832FF`.
